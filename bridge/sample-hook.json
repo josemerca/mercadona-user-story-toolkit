@@ -1,0 +1,17 @@
+{
+  "_comment": "Sample hook config para Claude Code. Copia el bloque 'hooks' a tu ~/.claude/settings.json. Ajusta la ruta a gsd-bridge.py.",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -d \"$(pwd)/.planning\" && python3 ${HOME}/.local/bin/gsd-bridge.py sync --quiet --planning \"$(pwd)/.planning/\" || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
