@@ -4,6 +4,13 @@ description: "Genera un PRD sintético a partir de los artefactos de GSD (.plann
 argument-hint: "[ruta a .planning/, default: ./.planning/]"
 ---
 
+> **Paso 0 (obligatorio): Cargar ground-rules.** Antes de proceder, lee `shared-config.md` y aplica:
+> - **§Filosofía del Plugin** — modo copiloto, NO inventar, preguntar antes de generar
+> - **§Estilo de Escritura** — frases ≤30 palabras, sin adjetivos sin datos, NUNCA inventar métricas
+> - **§Antipatrones Compartidos** — los 7 antipatrones a detectar
+>
+> Si no puedes leer el fichero, detén la ejecución y reporta el problema.
+
 Ejecuta `/from-gsd` para transformar los artefactos de un proyecto GSD (Get Shit Done) en un PRD sintético compatible con `/prd-quality-guard`. El PRD resultante puede entrar al pipeline en la fase de research → stories.
 
 **Input necesario:** Ruta al directorio `.planning/` de un proyecto GSD. Default: `./.planning/` (directorio actual).

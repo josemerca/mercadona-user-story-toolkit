@@ -3,6 +3,13 @@ name: review-questions
 description: "Revisar preguntas de entrevista contra Mom Test"
 ---
 
+> **Paso 0 (obligatorio): Cargar ground-rules.** Antes de proceder, lee `shared-config.md` y aplica:
+> - **§Filosofía del Plugin** — modo copiloto, NO inventar, preguntar antes de generar
+> - **§Estilo de Escritura** — frases ≤30 palabras, sin adjetivos sin datos, NUNCA inventar métricas
+> - **§Antipatrones Compartidos** — los 7 antipatrones a detectar
+>
+> Si no puedes leer el fichero, detén la ejecución y reporta el problema.
+
 Ejecuta el workflow de revisión de preguntas de `/research-from-prd`.
 
 **Input necesario:** Preguntas a revisar + contexto del PRD.
