@@ -82,6 +82,14 @@ Para cada story analizada:
 
 ### Paso 1: Escanear Red Flags
 
+**Detector determinista (offload-deterministic):** ejecutar el script para identificar coincidencias exactas con boundary-matching, en lugar de escanear con el LLM.
+
+```bash
+python3 scripts/redflags.py --text "<contenido completo de la story>"
+```
+
+Devuelve los red flags detectados agrupados por categoría. Si no hay matches, no significa que la story sea pequeña — confirmar con el resto del paso.
+
 Leer cada story buscando indicadores lingüísticos en TODOS estos campos:
 - User Story (Como/Cuando/Quiero/Para)
 - JTBD Reforzado (Job Principal, Struggle)

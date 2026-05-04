@@ -53,6 +53,14 @@ El toolkit es agnóstico de issue tracker. Si el usuario quiere evaluar stories 
 
 **Detalle completo de scoring:** Ver `references/scoring-guide.md`
 
+**Cálculo determinista (offload-deterministic):** delegar el cálculo de Score Global al script.
+
+```bash
+python3 scripts/score_story.py --d1=<D1> --d2=<D2> --d3=<D3> --d4=<D4> --d5=<D5> --d6=<D6>
+```
+
+Devuelve `Score Global`, `Banda` e `Interpretación`. Usar su output en el reporte.
+
 ## Antipatrones a detectar
 
 1. **"As a user..."** → Rol genérico, penalizar User Specificity

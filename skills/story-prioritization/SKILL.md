@@ -130,6 +130,14 @@ Priority Score = (Value x 0.30) + (Learning x 0.25) + (Dependencies x 0.20)
                + (Risk of Delay x 0.15) + (Inv. Complexity x 0.10)
 ```
 
+**Cálculo determinista (offload-deterministic):**
+
+```bash
+python3 scripts/score_priority.py --value=<V> --learning=<L> --dependencies=<D> --risk=<R> --complexity=<IC>
+```
+
+Devuelve `Priority Score` y `Banda`. Usar su output literal en el ranking.
+
 | Lente | Peso | Pregunta clave |
 |-------|------|----------------|
 | Value | 30% | Cuanto impacto genera para negocio y usuario? |

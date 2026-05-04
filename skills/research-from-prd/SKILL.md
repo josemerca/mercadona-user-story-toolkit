@@ -46,7 +46,7 @@ Flujo: prd-quality-guard → **Preparación** → B1 Propósito → B2 Plan → 
 1. Obtener el PRD (fichero local, URL o pegado por el usuario)
 2. Leer `references/gap-detection-prd.md`
 3. Analizar EAC con GAP-PRD-01 a PRD-04 + EFC/Scope con GAP-PRD-05 a PRD-08
-4. Calcular Gap Score: `(Críticos × 10) + (Mayores × 5) + (Menores × 2) + (Refinamiento × 1)`
+4. Calcular Gap Score: `(Críticos × 10) + (Mayores × 5) + (Menores × 2) + (Refinamiento × 1)`. **Cálculo determinista:** `python3 scripts/gap_score.py --criticos=<N> --mayores=<N> --menores=<N> --refinamiento=<N>`
 5. Inventariar JTBDs existentes (si los hay en el Discovery del PRD)
 6. Determinar modo:
    - **Descubrir** (Discovery del PRD ausente o flojo)

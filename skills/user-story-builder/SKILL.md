@@ -240,6 +240,14 @@ Antes de entregar la story, validar contra checklist:
 
 **Score Global = Promedio(Dim1...Dim6).** Compatible con `/user-story-quality-coach` y `/jtbd-to-stories`.
 
+**Cálculo determinista (offload-deterministic):**
+
+```bash
+python3 scripts/score_story.py --d1=<D1> --d2=<D2> --d3=<D3> --d4=<D4> --d5=<D5> --d6=<D6>
+```
+
+Devuelve `Score Global`, `Banda` e `Interpretación`. Citar su output en lugar de hacer la media manualmente.
+
 ---
 
 ## Integración con Otras Skills

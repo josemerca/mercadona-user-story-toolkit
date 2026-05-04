@@ -212,6 +212,14 @@ Presentar al usuario un BORRADOR de cada story (§1 User Story + §3 Comportamie
 
 **Score Global = Promedio(Dim1...Dim6)**
 
+**Cálculo determinista (offload-deterministic):**
+
+```bash
+python3 scripts/score_story.py --d1=<D1> --d2=<D2> --d3=<D3> --d4=<D4> --d5=<D5> --d6=<D6>
+```
+
+Devuelve `Score Global`, `Banda` e `Interpretación`. Citar el output literal — no calcular la media en el LLM.
+
 Interpretación: 0-4 requiere reescritura | 5-6 necesita refinamiento | 7-8 lista para desarrollo | 9-10 modelo a seguir.
 
 **Nota:** Stories desde JTBDs con evidencia real típicamente alcanzan Dim1 y Dim2 ≥7.
