@@ -129,7 +129,26 @@ Antes de proponer splits, presentar el diagnóstico:
 
 **Esperar confirmación antes de generar los splits.**
 
-### Paso 3: Aplicar Heurísticas de Splitting
+### Paso 3: Aplicar Heurísticas de Splitting (cast-wide)
+
+**Regla cast-wide (Lada Kesseler):** No converjas en la primera técnica que encaja. Genera **2-3 propuestas alternativas** con técnicas distintas y presenta los trade-offs antes de que el usuario elija.
+
+Para cada alternativa, documenta:
+- Técnica aplicada (de la tabla de 9 heurísticas)
+- Splits resultantes (lista corta, sin detallar todavía)
+- **Trade-offs explícitos:** qué se entrega antes / qué se aprende / qué riesgo cubre / cuál es el Survivable Experiment más pequeño
+
+**Formato de presentación al usuario:**
+
+```
+Opción A (técnica X): split en N stories. Trade-off: ...
+Opción B (técnica Y): split en M stories. Trade-off: ...
+Opción C (técnica Z): split en P stories. Trade-off: ...
+
+Mi recomendación: <opción> porque <razón>. ¿Con cuál seguimos?
+```
+
+Una vez el usuario elige, **entonces** detallar los splits de esa opción.
 
 9 heurísticas disponibles (aplicar según red flags detectados):
 

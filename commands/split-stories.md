@@ -18,12 +18,14 @@ Analiza stories para detectar red flags lingüísticos y propone splits incremen
 **Proceso:**
 1. Leer el SKILL.md de `skills/story-splitting/`
 2. Para cada story:
-   - Escanear las 6 categorías de red flags lingüísticos
-   - Consultar tabla de decisión para seleccionar técnica
-   - Aplicar heurísticas de splitting (9 técnicas disponibles)
-   - Proponer 3-5 splits concretos con orden de entrega
+   - Escanear las 6 categorías de red flags lingüísticos (`scripts/redflags.py`)
+   - **Generar 2-3 propuestas alternativas** con técnicas distintas (cast-wide). Ej: una vertical por flujo de usuario, una por capacidad, una por valor mínimo viable.
+   - Para cada alternativa, presentar: técnica aplicada, splits resultantes, trade-offs (qué se entrega antes / qué se aprende / qué riesgo cubre)
+   - **CHECKPOINT:** preguntar al usuario cuál prefiere antes de detallar splits
+   - Detallar los 3-5 splits de la opción elegida
 3. Generar reporte con:
    - Diagnóstico de red flags
+   - Las alternativas exploradas (con la elegida marcada)
    - Splits propuestos (en formato User Story)
    - Orden de entrega recomendado
    - Impacto esperado en Dim 6 (Survivable Experiment)
