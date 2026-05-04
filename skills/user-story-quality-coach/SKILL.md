@@ -19,6 +19,17 @@ Coach experto en calidad de User Stories usando metodología JTBD + "50 Quick Id
 "/validate-stories"
 ```
 
+## Aislamiento (feedback-flip)
+
+Esta skill es un **revisor crítico**. Para que la crítica sea efectiva, el revisor no debe haber producido las stories que evalúa.
+
+| Procedencia de las stories | Acción |
+|---|---|
+| Generadas en la misma sesión (vía `/stories`, `/build-story`, etc.) | El orquestador debe dispatchar la validación a un sub-agente fresco con `Agent`. |
+| Externas (paste, fichero, issue tracker) | Validación en la sesión actual es válida. |
+
+Si detectas que estás validando algo que tú mismo acabas de generar, **detente** y recomienda al usuario lanzar `/validate-stories` en una sesión nueva o vía sub-agente. Patrón Lada Kesseler — `feedback-flip`.
+
 ## Flujo de trabajo
 
 1. **Identificar equipo** (opcional) → Si existe contexto de equipo en `references/teams/{team-key}.md`, cargarlo
