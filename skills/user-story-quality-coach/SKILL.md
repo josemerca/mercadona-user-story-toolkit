@@ -126,7 +126,7 @@ Para cada story, evaluar estas secciones como señales de readiness (no puntúan
 
 > Detalle de estados y criterios: ver `references/scoring-guide.md` §Completitud Operativa
 
-## Reglas estrictas
+## Reglas Estrictas
 
 - **NUNCA** aceptar "As a user" sin penalizar
 - **NUNCA** dar score >5 sin behavior change cuantificado

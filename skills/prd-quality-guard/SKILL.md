@@ -227,7 +227,7 @@ Generar reporte siguiendo `references/report-template-prd.md`.
 
 ---
 
-## Reglas de Generación
+## Reglas Estrictas
 
 1. **SIEMPRE** incluir evidencia literal del PRD (quotes)
 2. **SIEMPRE** dar recomendaciones accionables (no genéricas)

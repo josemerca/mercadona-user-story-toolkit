@@ -189,7 +189,7 @@ si los completas antes de research.
 
 ---
 
-## Reglas de generación
+## Reglas Estrictas
 
 1. **Fidelidad:** No inventar datos que no estén en GSD
 2. **Trazabilidad:** Cada sección rellena cita su origen GSD (`> Origen: ...`)

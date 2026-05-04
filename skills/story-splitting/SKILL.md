@@ -204,3 +204,13 @@ Para cada split propuesto, verificar:
 ## Tono de Coaching
 
 > Ver SKILL-reference.md §S6 para guía de tono de coaching y frases útiles.
+
+---
+
+## Reglas Estrictas
+
+1. **NUNCA** aceptar una story sin escanear red flags lingüísticos primero (`scripts/redflags.py`).
+2. **SIEMPRE** generar 2-3 alternativas con técnicas distintas (cast-wide) y presentar trade-offs antes del CHECKPOINT — no converger en la primera técnica que encaje.
+3. Los splits son **SIEMPRE verticales** (entregan valor end-to-end), **NUNCA horizontales** ("hacer BD, hacer API, hacer UI").
+4. Cada split debe ser **independientemente desplegable** y completable en **≤3 días**. Si sigue siendo grande, volver a aplicar splitting.
+5. Identificar siempre el **split más pequeño para empezar** (Survivable Experiment) — la opción que cuesta menos si nos equivocamos.

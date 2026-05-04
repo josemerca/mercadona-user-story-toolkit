@@ -261,3 +261,14 @@ Fichero local, URL pública, o pegado directo en el chat. La skill no asume ning
 - `references/prd-to-interview-mapping.md` — Mapeo PRD → preguntas
 - `references/mom-test-principles.md` — Mom Test + moderación
 - `references/analysis-to-jtbd.md` — Observaciones → JTBDs
+
+---
+
+## Reglas Estrictas
+
+1. **NUNCA** generar JTBDs ni conclusiones sin evidencia real de entrevistas/observación. Si el usuario no ha hecho research, el output son planes y guías, no JTBDs inventados.
+2. **SIEMPRE** separar HECHOS (observaciones de campo) de INTERPRETACIONES (aprendizajes en clave JTBD). Mezclarlos es el error más peligroso del research.
+3. **En modo Validar:** el guión de entrevista **NUNCA** debe mencionar, sugerir ni insinuar los JTBDs del Discovery. Si un JTBD no se confirma, eso es un hallazgo valioso.
+4. **PROHIBIDO** proponer soluciones en B6 Next Steps. Discovery descubre PROBLEMA; Explore diseña SOLUCIÓN.
+5. **SIEMPRE** filtrar bad data: cumplidos, fluff y promesas futuras se descartan antes del análisis.
+6. **SIEMPRE** delegar el Gap Score a `scripts/gap_score.py`, no calcularlo en el LLM.

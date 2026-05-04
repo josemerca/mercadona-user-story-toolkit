@@ -265,3 +265,14 @@ Devuelve `Score Global`, `Banda` e `Interpretación`. Citar su output en lugar d
 ## Comandos Rápidos
 
 > Ver SKILL-reference.md §5 para tabla de comandos disponibles.
+
+---
+
+## Reglas Estrictas
+
+1. **NUNCA** generar una story completa sin recorrer las 6 fases con el usuario.
+2. **NUNCA** avanzar a la fase siguiente sin completar la actual — aunque el usuario quiera ir rápido, hacer las preguntas mínimas de cada fase.
+3. **NUNCA** inventar valores numéricos, KPIs ni rangos min/target/over. Si el usuario no los tiene, recomendar qué métrica sería útil y con quién definirla (PM, Data, Analytics).
+4. Si el usuario describe una solución en lugar de un job ("quiero un botón que..."), aplicar técnica del "¿Por qué?" hasta llegar al trabajo real.
+5. Detectar el antipatrón **Solution-as-Need** y reformular antes de continuar.
+6. **SIEMPRE** delegar el cálculo del Score Global a `scripts/score_story.py`.

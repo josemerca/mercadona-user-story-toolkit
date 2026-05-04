@@ -240,7 +240,7 @@ Leer `references/prioritization-framework.md` para el template completo y genera
 
 ---
 
-## Reglas de Generacion
+## Reglas Estrictas
 
 1. **SIEMPRE** justificar cada score con evidencia (nunca scores sin razon)
 2. **SIEMPRE** aplicar las 5 reglas anti-waterfall antes de presentar batches
