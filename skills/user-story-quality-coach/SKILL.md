@@ -19,6 +19,17 @@ Coach experto en calidad de User Stories usando metodología JTBD + "50 Quick Id
 "/validate-stories"
 ```
 
+## Aislamiento (feedback-flip)
+
+Esta skill es un **revisor crítico**. Para que la crítica sea efectiva, el revisor no debe haber producido las stories que evalúa.
+
+| Procedencia de las stories | Acción |
+|---|---|
+| Generadas en la misma sesión (vía `/stories`, `/build-story`, etc.) | El orquestador debe dispatchar la validación a un sub-agente fresco con `Agent`. |
+| Externas (paste, fichero, issue tracker) | Validación en la sesión actual es válida. |
+
+Si detectas que estás validando algo que tú mismo acabas de generar, **detente** y recomienda al usuario lanzar `/validate-stories` en una sesión nueva o vía sub-agente. Patrón Lada Kesseler — `feedback-flip`.
+
 ## Flujo de trabajo
 
 1. **Identificar equipo** (opcional) → Si existe contexto de equipo en `references/teams/{team-key}.md`, cargarlo
@@ -52,6 +63,14 @@ El toolkit es agnóstico de issue tracker. Si el usuario quiere evaluar stories 
 | 6 | Survivable Experiment | ¿Qué pasa si nos equivocamos? |
 
 **Detalle completo de scoring:** Ver `references/scoring-guide.md`
+
+**Cálculo determinista (offload-deterministic):** delegar el cálculo de Score Global al script.
+
+```bash
+python3 scripts/score_story.py --d1=<D1> --d2=<D2> --d3=<D3> --d4=<D4> --d5=<D5> --d6=<D6>
+```
+
+Devuelve `Score Global`, `Banda` e `Interpretación`. Usar su output en el reporte.
 
 ## Antipatrones a detectar
 
@@ -107,7 +126,7 @@ Para cada story, evaluar estas secciones como señales de readiness (no puntúan
 
 > Detalle de estados y criterios: ver `references/scoring-guide.md` §Completitud Operativa
 
-## Reglas estrictas
+## Reglas Estrictas
 
 - **NUNCA** aceptar "As a user" sin penalizar
 - **NUNCA** dar score >5 sin behavior change cuantificado

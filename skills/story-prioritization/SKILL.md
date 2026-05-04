@@ -130,6 +130,14 @@ Priority Score = (Value x 0.30) + (Learning x 0.25) + (Dependencies x 0.20)
                + (Risk of Delay x 0.15) + (Inv. Complexity x 0.10)
 ```
 
+**Cálculo determinista (offload-deterministic):**
+
+```bash
+python3 scripts/score_priority.py --value=<V> --learning=<L> --dependencies=<D> --risk=<R> --complexity=<IC>
+```
+
+Devuelve `Priority Score` y `Banda`. Usar su output literal en el ranking.
+
 | Lente | Peso | Pregunta clave |
 |-------|------|----------------|
 | Value | 30% | Cuanto impacto genera para negocio y usuario? |
@@ -195,12 +203,18 @@ Presentar tabla de scores propuestos:
 
 Esperar confirmacion antes de generar batches.
 
-### Paso 5: Generacion de Batches
+### Paso 5: Generacion de Batches (cast-wide)
 
-1. Ordenar stories por Priority Score (descendente)
-2. Respetar dependencias del grafo (bloqueantes van antes)
-3. Agrupar en batches de 2-4 stories
-4. Para cada batch, definir:
+**Regla cast-wide (Lada Kesseler):** No presentes un único orden. Genera 2 alternativas y deja que el usuario elija.
+
+1. **Plan A — Value-first:** Ordenar stories por Priority Score puro (descendente).
+2. **Plan B — Learning-first:** Adelantar stories con Learning ≥ 4 aunque su Priority Score sea menor. Útil si hay incertidumbre alta (técnica, mercado, usuario).
+3. Para cada plan, respetar dependencias del grafo (bloqueantes van antes) y agrupar en batches de 2-4 stories.
+4. Presentar los dos planes lado a lado con trade-offs:
+   - **Value-first:** entrega valor antes; menor aprendizaje temprano; riesgo si las hipótesis fallan tarde.
+   - **Learning-first:** reduce incertidumbre antes; valor visible más tarde; mejor si el dominio o solución es nuevo.
+5. **CHECKPOINT con el usuario:** ¿qué plan elegimos? (o un híbrido).
+6. Para el plan elegido, detallar cada batch:
    - Stories incluidas con Priority Score
    - Valor que entrega el batch al usuario
    - Duracion estimada (suma de Inv. Complexity)
@@ -226,7 +240,7 @@ Leer `references/prioritization-framework.md` para el template completo y genera
 
 ---
 
-## Reglas de Generacion
+## Reglas Estrictas
 
 1. **SIEMPRE** justificar cada score con evidencia (nunca scores sin razon)
 2. **SIEMPRE** aplicar las 5 reglas anti-waterfall antes de presentar batches

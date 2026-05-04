@@ -204,6 +204,14 @@ Documentar cada instancia encontrada con texto literal.
 Calcular Score Global = Promedio(D1, D2, D3).
 Aplicar regla especial: D3 < 5 -> FAIL automático.
 
+**Cálculo determinista (offload-deterministic):** ejecutar el script en lugar de hacer la aritmética en el LLM.
+
+```bash
+python3 scripts/score_prd.py --d1=<D1> --d2=<D2> --d3=<D3>
+```
+
+El script devuelve `Score Global`, `Gate`, `Decisión` y `Razón`. Aplica ya la regla `D3<5 → FAIL`. Citar su output literal en el reporte.
+
 ### Paso 7: Reporte de Calidad
 
 Generar reporte siguiendo `references/report-template-prd.md`.
@@ -219,7 +227,7 @@ Generar reporte siguiendo `references/report-template-prd.md`.
 
 ---
 
-## Reglas de Generación
+## Reglas Estrictas
 
 1. **SIEMPRE** incluir evidencia literal del PRD (quotes)
 2. **SIEMPRE** dar recomendaciones accionables (no genéricas)

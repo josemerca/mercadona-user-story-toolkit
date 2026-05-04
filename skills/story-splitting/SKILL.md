@@ -82,6 +82,14 @@ Para cada story analizada:
 
 ### Paso 1: Escanear Red Flags
 
+**Detector determinista (offload-deterministic):** ejecutar el script para identificar coincidencias exactas con boundary-matching, en lugar de escanear con el LLM.
+
+```bash
+python3 scripts/redflags.py --text "<contenido completo de la story>"
+```
+
+Devuelve los red flags detectados agrupados por categoría. Si no hay matches, no significa que la story sea pequeña — confirmar con el resto del paso.
+
 Leer cada story buscando indicadores lingüísticos en TODOS estos campos:
 - User Story (Como/Cuando/Quiero/Para)
 - JTBD Reforzado (Job Principal, Struggle)
@@ -121,7 +129,26 @@ Antes de proponer splits, presentar el diagnóstico:
 
 **Esperar confirmación antes de generar los splits.**
 
-### Paso 3: Aplicar Heurísticas de Splitting
+### Paso 3: Aplicar Heurísticas de Splitting (cast-wide)
+
+**Regla cast-wide (Lada Kesseler):** No converjas en la primera técnica que encaja. Genera **2-3 propuestas alternativas** con técnicas distintas y presenta los trade-offs antes de que el usuario elija.
+
+Para cada alternativa, documenta:
+- Técnica aplicada (de la tabla de 9 heurísticas)
+- Splits resultantes (lista corta, sin detallar todavía)
+- **Trade-offs explícitos:** qué se entrega antes / qué se aprende / qué riesgo cubre / cuál es el Survivable Experiment más pequeño
+
+**Formato de presentación al usuario:**
+
+```
+Opción A (técnica X): split en N stories. Trade-off: ...
+Opción B (técnica Y): split en M stories. Trade-off: ...
+Opción C (técnica Z): split en P stories. Trade-off: ...
+
+Mi recomendación: <opción> porque <razón>. ¿Con cuál seguimos?
+```
+
+Una vez el usuario elige, **entonces** detallar los splits de esa opción.
 
 9 heurísticas disponibles (aplicar según red flags detectados):
 
@@ -177,3 +204,13 @@ Para cada split propuesto, verificar:
 ## Tono de Coaching
 
 > Ver SKILL-reference.md §S6 para guía de tono de coaching y frases útiles.
+
+---
+
+## Reglas Estrictas
+
+1. **NUNCA** aceptar una story sin escanear red flags lingüísticos primero (`scripts/redflags.py`).
+2. **SIEMPRE** generar 2-3 alternativas con técnicas distintas (cast-wide) y presentar trade-offs antes del CHECKPOINT — no converger en la primera técnica que encaje.
+3. Los splits son **SIEMPRE verticales** (entregan valor end-to-end), **NUNCA horizontales** ("hacer BD, hacer API, hacer UI").
+4. Cada split debe ser **independientemente desplegable** y completable en **≤3 días**. Si sigue siendo grande, volver a aplicar splitting.
+5. Identificar siempre el **split más pequeño para empezar** (Survivable Experiment) — la opción que cuesta menos si nos equivocamos.

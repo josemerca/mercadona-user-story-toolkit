@@ -212,6 +212,14 @@ Presentar al usuario un BORRADOR de cada story (§1 User Story + §3 Comportamie
 
 **Score Global = Promedio(Dim1...Dim6)**
 
+**Cálculo determinista (offload-deterministic):**
+
+```bash
+python3 scripts/score_story.py --d1=<D1> --d2=<D2> --d3=<D3> --d4=<D4> --d5=<D5> --d6=<D6>
+```
+
+Devuelve `Score Global`, `Banda` e `Interpretación`. Citar el output literal — no calcular la media en el LLM.
+
 Interpretación: 0-4 requiere reescritura | 5-6 necesita refinamiento | 7-8 lista para desarrollo | 9-10 modelo a seguir.
 
 **Nota:** Stories desde JTBDs con evidencia real típicamente alcanzan Dim1 y Dim2 ≥7.
@@ -252,3 +260,13 @@ Interpretación: 0-4 requiere reescritura | 5-6 necesita refinamiento | 7-8 list
 | `Genera stories del PRD de [X]` | Extracción directa del PRD (con advertencia) |
 | `Stories del research de [X]` | Buscar output de research y generar |
 | `Desglose a nivel [épica/feature/story]` | Ajustar granularidad de salida |
+
+---
+
+## Reglas Estrictas
+
+1. **NUNCA** generar stories sin JTBDs con evidencia real (advertir si el usuario salta `/research-from-prd`).
+2. **NUNCA** inventar valores numéricos, KPIs, quotes ni rangos min/target/over — marcar como `⚠️ Pendiente: definir con PM/Data`.
+3. **SIEMPRE** pasar por los dos CHECKPOINTs (inventario de inputs y revisión de borrador) antes de generar el output final.
+4. **NUNCA** aceptar como Job algo que sea una solución (ej. "tener una lista de favoritos"). Aplicar técnica del "¿Por qué?" hasta llegar al trabajo real.
+5. **SIEMPRE** delegar el cálculo del Score Global a `scripts/score_story.py` — no hacer la media en el LLM.
